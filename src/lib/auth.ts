@@ -34,7 +34,6 @@ export function toPublic(user: User): PublicUser {
 
 
 const globalForAuth = globalThis as unknown as {
-  askdbUsers?: User[];
   askdbSecret?: string;
 };
 
@@ -67,12 +66,14 @@ async function getSecret(): Promise<string> {
 /* Users                                                                       */
 /* -------------------------------------------------------------------------- */
 
-/** Pure read. Does not provision — provisionAdmin() depends on this. */
+/** Read through storage so deleting the JSON fallback resets a running instance. */
 async function readUsers(): Promise<User[]> {
-  if (globalForAuth.askdbUsers) return globalForAuth.askdbUsers;
-
   const users = await readDocument<User[]>("users", []);
-  globalForAuth.askdbUsers = Array.isArray(users) ? users : [];
+  if (!Array.isArray(users) || users.length === 0) {
+    // The signing secret may have been deleted with the fallback directory too.
+    globalForAuth.askdbSecret = undefined;
+    return [];
+  }
   return users;
 }
 
@@ -90,7 +91,6 @@ export async function listUsers(): Promise<User[]> {
 
 async function writeUsers(users: User[]): Promise<void> {
   await writeDocument("users", users);
-  globalForAuth.askdbUsers = users;
 }
 
 async function hashPassword(password: string, salt: string): Promise<string> {
