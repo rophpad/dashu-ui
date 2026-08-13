@@ -87,7 +87,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
         <span className="text-[17px] font-semibold tracking-tight">Dashu</span>
       </Link>
 
-      <div className="w-full max-w-[380px] rounded-xl border bg-panel p-6 shadow-card">
+      <div className="w-full max-w-95 rounded-xl border bg-panel p-6 shadow-card">
         <h1 className="text-[19px] font-semibold tracking-[-0.01em]">
           {mode === "signin"
             ? "Sign in"
@@ -201,7 +201,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
         )}
       </div>
 
-      <p className="mt-6 max-w-[380px] text-center text-xs leading-relaxed text-faint">
+      <p className="mt-6 max-w-95 text-center text-xs leading-relaxed text-faint">
         Self-hosted. Your credentials and your data never leave this server.
       </p>
     </main>

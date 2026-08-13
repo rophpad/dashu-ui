@@ -77,7 +77,7 @@ export default function Sidebar() {
     <aside
       aria-label="Sidebar"
       data-open={drawerOpen}
-      className="drawer flex w-[264px] shrink-0 flex-col border-r bg-surface"
+      className="drawer flex w-66 shrink-0 flex-col border-r bg-surface"
     >
       <div className="flex h-14 items-center gap-2.5 px-4">
         <Logo className="size-5" />
