@@ -1,0 +1,20 @@
+services:
+  dashu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dashu-ui
+    restart: unless-stopped
+    environment:
+      DASHU_DATABASE_URL: ${DASHU_DATABASE_URL:?Set DASHU_DATABASE_URL in .env}
+      DASHU_STORAGE_DATABASE_URL: ${DASHU_STORAGE_DATABASE_URL:-}
+      DASHU_CLOUD_URL: ${DASHU_CLOUD_URL:-https://dashu.vercel.app}
+      DASHU_CLOUD_CREDENTIAL: ${DASHU_CLOUD_CREDENTIAL:-}
+    volumes:
+      # Persists the automatic JSON fallback when no storage database is set.
+      - dashu-data:/app/.dashu
+    ports:
+      - "3000:3000"
+
+volumes:
+  dashu-data:
