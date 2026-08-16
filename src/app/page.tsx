@@ -76,11 +76,79 @@ export default async function LandingPage() {
             ))}
           </div>
         </section>
+
+        <section className="mx-auto max-w-5xl px-6 py-20">
+          <div className="max-w-2xl">
+            <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-accent">
+              Project resources
+            </p>
+            <h2 className="mt-3 text-[30px] font-semibold leading-tight tracking-[-0.03em] sm:text-[38px]">
+              Deploy, extend, and connect Dashu UI.
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-muted">
+              The interface is open source, built on the standalone Dashu SDK, and connects to
+              Dashu Cloud only when you choose managed AI or licensed features.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            <article className="flex flex-col rounded-2xl border bg-panel p-6 shadow-card">
+              <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-accent">Source code</p>
+              <h3 className="mt-3 text-[18px] font-semibold">Dashu UI on GitHub</h3>
+              <p className="mt-2 grow text-[14px] leading-relaxed text-muted">
+                Review the code, clone the application, report issues, or contribute improvements.
+              </p>
+              <a
+                href="https://github.com/rophpad/dashu-ui"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex w-fit rounded-lg border px-3.5 py-2 text-[13px] font-medium transition-colors hover:bg-surface"
+              >
+                View repository ↗
+              </a>
+            </article>
+            <article className="flex flex-col rounded-2xl border bg-panel p-6 shadow-card">
+              <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-accent">Developer SDK</p>
+              <h3 className="mt-3 text-[18px] font-semibold">Dashu Packages</h3>
+              <p className="mt-2 grow text-[14px] leading-relaxed text-muted">
+                Explore the npm packages that power queries, PostgreSQL access, Next.js routes, and
+                AI providers.
+              </p>
+              <a
+                href="https://github.com/rophpad/dashu-packages"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex w-fit rounded-lg border px-3.5 py-2 text-[13px] font-medium transition-colors hover:bg-surface"
+              >
+                View packages ↗
+              </a>
+            </article>
+            <article className="flex flex-col rounded-2xl border bg-panel p-6 shadow-card">
+              <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-accent">Managed features</p>
+              <h3 className="mt-3 text-[18px] font-semibold">Get a licence key</h3>
+              <p className="mt-2 grow text-[14px] leading-relaxed text-muted">
+                Create a Dashu Cloud account, choose a plan, and generate the server-side installation
+                credential used for managed AI and Pro features.
+              </p>
+              <a
+                href="https://dashu.vercel.app/signup"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex w-fit rounded-lg bg-accent px-3.5 py-2 text-[13px] font-medium text-white transition-colors hover:bg-accent-hover"
+              >
+                Get a licence key ↗
+              </a>
+            </article>
+          </div>
+        </section>
       </main>
 
       <footer className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-8 text-xs text-faint">
-        <span>Dashu UI</span>
-        <span>Your data stays on your infrastructure.</span>
+        <span>Dashu UI · Your data stays on your infrastructure.</span>
+        <div className="flex flex-wrap gap-4">
+          <a href="https://github.com/rophpad/dashu-ui" target="_blank" rel="noreferrer" className="hover:text-fg">GitHub</a>
+          <a href="https://github.com/rophpad/dashu-packages" target="_blank" rel="noreferrer" className="hover:text-fg">Packages</a>
+          <a href="https://dashu.vercel.app" target="_blank" rel="noreferrer" className="hover:text-fg">Dashu Cloud</a>
+        </div>
       </footer>
     </div>
   );
